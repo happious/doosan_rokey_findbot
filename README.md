@@ -23,12 +23,21 @@
 
 <br/>
 
-<img src="./assets/demo_overview.gif" width="850" alt="FindBot integrated demo" />
+<table>
+<tr>
+<td align="center" width="50%">
+  <img src="./assets/gray_box_robot.gif" width="100%" alt="FindBot box opening demo" />
+</td>
+<td align="center" width="50%">
+  <img src="./assets/find_only_robot.gif" width="100%" alt="FindBot active object search demo" />
+</td>
+</tr>
+</table>
 
 <br/>
 
-[🎬 **통합 시연 영상**](./assets/demo_overview.mp4) ·
-[🤖 **탐색·파지 시연**](./assets/demo_search_pick.mp4) ·
+[🗄️ **Box Opening Demo**](#demo) ·
+[🤖 **Search & Pick Demo**](#demo) ·
 [🧭 **시스템 구조**](#system-architecture) ·
 [👁️ **Vision**](#vision) ·
 [🖥️ **Monitoring UI**](#monitoring-ui)
@@ -70,19 +79,18 @@
 
 <table>
 <tr>
-<td align="center" width="68%">
-<b>System Integration</b><br/><br/>
-<img src="./assets/demo_overview.gif" width="100%" alt="System integration demo" />
+<td align="center" width="50%">
+<b>Box Opening</b><br/><br/>
+<img src="./assets/gray_box_robot.gif" width="100%" alt="Box opening demo" /><br/><br/>
+<sub>보관함 손잡이에 접근해 파지한 뒤, Cartesian 경로로 상자를 열어 내부 탐색 공간을 확보합니다.</sub>
 </td>
-<td align="center" width="32%">
+<td align="center" width="50%">
 <b>Search & Pick</b><br/><br/>
-<img src="./assets/demo_search_pick.gif" width="100%" alt="Search and pick demo" />
+<img src="./assets/find_with_ui.gif" width="100%" alt="Search and pick demo with monitoring UI" /><br/><br/>
+<sub>대상 물체를 탐색하고 6D Pose를 추정한 뒤, UI로 상태를 확인하며 실제 파지 동작까지 수행합니다.</sub>
 </td>
 </tr>
 </table>
-
-- [전체 통합 시연 MP4](./assets/demo_overview.mp4)
-- [탐색·파지 시연 MP4](./assets/demo_search_pick.mp4)
 
 ---
 
@@ -186,6 +194,21 @@ Any6D는 RGB, Depth, Object Mask, Camera Intrinsic, 3D Mesh를 이용해 `T_came
 |---|---|---|
 | `dino_any6d_node` | **정밀 파지**가 필요한 단일 대상 | Camera 기준 Target 6D Pose |
 | `dino_all_object_node` | 남아 있는 **전체 물체 위치 관리** | Robot Base 기준 XYZ + DB Update |
+
+<table>
+<tr>
+<td align="center" width="50%">
+<b><code>dino_any6d_node</code> Result</b><br/><br/>
+<img src="./assets/any6d_result.png" width="100%" alt="dino_any6d_node 6D pose estimation result" /><br/><br/>
+<sub>단일 대상에 대해 GroundingDINO 검출 후 Any6D로 6D Pose를 추정한 결과</sub>
+</td>
+<td align="center" width="50%">
+<b><code>dino_all_object_node</code> Result</b><br/><br/>
+<img src="./assets/ground_dino_result.png" width="100%" alt="dino_all_object_node multi-object detection result" /><br/><br/>
+<sub>현재 시야에 남아 있는 여러 물체를 동시에 검출하여 전체 물체 위치 관리에 사용하는 결과</sub>
+</td>
+</tr>
+</table>
 
 모든 물체에 Any6D를 반복 적용하면 연산량이 커지기 때문에, **정밀 파지와 전체 상태 관리 역할을 분리**했습니다.
 
