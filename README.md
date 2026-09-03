@@ -23,16 +23,10 @@
 
 <br/>
 
-<table>
-<tr>
-<td align="center" width="50%">
-  <img src="./assets/gray_box_robot.gif" width="100%" alt="FindBot box opening demo" />
-</td>
-<td align="center" width="50%">
-  <img src="./assets/find_only_robot.gif" width="100%" alt="FindBot active object search demo" />
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="./assets/gray_box_robot.gif" width="49%" alt="FindBot box opening demo" />
+  <img src="./assets/find_only_robot.gif" width="49%" alt="FindBot active object search demo" />
+</p>
 
 <br/>
 
@@ -79,14 +73,22 @@
 
 <table>
 <tr>
-<td align="center" width="50%">
-<b>Box Opening</b><br/><br/>
-<img src="./assets/gray_box_robot.gif" width="100%" alt="Box opening demo" /><br/><br/>
+<td align="center" width="50%"><b>Box Opening</b></td>
+<td align="center" width="50%"><b>Search & Pick</b></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
+<img src="./assets/demo_overview.gif" height="330" alt="Box opening demo" />
+</td>
+<td align="center" valign="top" width="50%">
+<img src="./assets/find_with_ui.gif" height="330" alt="Search and pick demo with monitoring UI" />
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
 <sub>보관함 손잡이에 접근해 파지한 뒤, Cartesian 경로로 상자를 열어 내부 탐색 공간을 확보합니다.</sub>
 </td>
-<td align="center" width="50%">
-<b>Search & Pick</b><br/><br/>
-<img src="./assets/find_with_ui.gif" width="100%" alt="Search and pick demo with monitoring UI" /><br/><br/>
+<td align="center" valign="top" width="50%">
 <sub>대상 물체를 탐색하고 6D Pose를 추정한 뒤, UI로 상태를 확인하며 실제 파지 동작까지 수행합니다.</sub>
 </td>
 </tr>
@@ -197,14 +199,22 @@ Any6D는 RGB, Depth, Object Mask, Camera Intrinsic, 3D Mesh를 이용해 `T_came
 
 <table>
 <tr>
-<td align="center" width="50%">
-<b><code>dino_any6d_node</code> Result</b><br/><br/>
-<img src="./assets/any6d_result.png" width="100%" alt="dino_any6d_node 6D pose estimation result" /><br/><br/>
+<td align="center" width="50%"><b><code>dino_any6d_node</code> Result</b></td>
+<td align="center" width="50%"><b><code>dino_all_object_node</code> Result</b></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
+<img src="./assets/any6d_result.png" height="260" alt="dino_any6d_node 6D pose estimation result" />
+</td>
+<td align="center" valign="top" width="50%">
+<img src="./assets/ground_dino_result.png" height="260" alt="dino_all_object_node multi-object detection result" />
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
 <sub>단일 대상에 대해 GroundingDINO 검출 후 Any6D로 6D Pose를 추정한 결과</sub>
 </td>
-<td align="center" width="50%">
-<b><code>dino_all_object_node</code> Result</b><br/><br/>
-<img src="./assets/ground_dino_result.png" width="100%" alt="dino_all_object_node multi-object detection result" /><br/><br/>
+<td align="center" valign="top" width="50%">
 <sub>현재 시야에 남아 있는 여러 물체를 동시에 검출하여 전체 물체 위치 관리에 사용하는 결과</sub>
 </td>
 </tr>
